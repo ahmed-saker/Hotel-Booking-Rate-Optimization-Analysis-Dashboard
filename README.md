@@ -30,3 +30,47 @@ An advanced data analysis and visualization project built with **Python** and **
 ---
 
 ## ⚙️ How It Works
+┌───────────────────────────┐
+│ 1. Fetch Upcoming Bookings│
+│ (Juniper SOAP API) │
+└─────────────┬─────────────┘
+▼
+┌───────────────────────────┐
+│ 2. Filter Valid Bookings │
+│ (Refundable, Third-Party) │
+└─────────────┬─────────────┘
+▼
+┌───────────────────────────┐
+│ 3. Query Live Availability│
+│ (OTA_HotelAvail API) │
+└─────────────┬─────────────┘
+▼
+┌───────────────────────────┐
+│ 4. Fuzzy Match Room Types │
+│ & Compare Prices │
+└─────────────┬─────────────┘
+▼
+┌───────────────────────────┐
+│ 5. Display in Dash UI │
+│ (Savings & Alternatives) │
+└───────────────────────────┘
+
+
+---
+
+## 📂 Project Structure
+New Conversion.ipynb # Main Jupyter Notebook containing the full pipeline
+HotelsAvailabiltyApi.py # (Imported module for fetching hotel availability)
+
+
+---
+
+## 🔐 Configuration
+
+Before running, ensure you replace the placeholder credentials in the notebook:
+
+```python
+user = 'YOUR_USERNAME'
+password = 'YOUR_PASSWORD'
+
+pip install pandas numpy requests aiohttp asyncio xmltodict rapidfuzz tqdm retrying dash jupyter-dash dash-bootstrap-components plotly
